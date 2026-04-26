@@ -1,6 +1,10 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,7 +19,26 @@ class MainActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
-            // It's a comment
         }
+
+
+        val myButton = findViewById<Button>(R.id.button2)
+        val myTextView = findViewById<TextView>(R.id.welcomeTextView)
+
+        myButton.setOnClickListener {
+            println("This button was clicked")
+            myTextView.text = "This button was clicked"
+            myTextView.textSize = 23.toFloat()
+        }
+
+        val goToSecondActivityButton = findViewById<Button>(R.id.button3)
+        val goToSecondActivityIntent = Intent(this, SecondActivity::class.java)
+
+        goToSecondActivityButton.setOnClickListener {
+            startActivity(goToSecondActivityIntent)
+        }
+
+
+
     }
 }
