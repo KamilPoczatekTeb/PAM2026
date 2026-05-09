@@ -34,6 +34,8 @@ class MainActivity : AppCompatActivity() {
         val goToSecondActivityButton = findViewById<Button>(R.id.button3)
         val goToSecondActivityIntent = Intent(this, SecondActivity::class.java)
 
+        goToSecondActivityIntent.putExtra( "MY_EXTRA",  "This message was written in the extras")
+
         goToSecondActivityButton.setOnClickListener {
             startActivity(goToSecondActivityIntent)
         }
